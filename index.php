@@ -22,15 +22,15 @@ include('config/dbcon.php');
                   
                
         
-                        <div class="row" style=" display: grid;column-gap:30px;grid-template-columns:30% 30% 30%; padding:0 0 0 50px; width: auto;row-gap:40px;">
+                        <div class="row justify-content-center p-2" style=" display: grid;;grid-template-columns:30% 30% 30%; width: auto;row-gap:40px;">
                                  <?php
                                 $query = "SELECT * FROM community_chatgroup";
                                 $query_run = mysqli_query($con,$query);
                                 if(mysqli_num_rows($query_run) > 0){
                                 foreach($query_run as $item){ ?>
-                            <div class="col-md-3 mb-2">
+                            <div class="col-md-3 " >
                                 <a href="products.php?id=<?= $item['chatroomid'];?>" class="text-decoration-none text-black">
-                                <div class="card shadow" style="width: 300px;margin:0px 0 0 0;">
+                                <div class="card shadow " style="width:300px;margin:0px 0 0 0;">
                                     <div class="card-body">
 
                                         
@@ -41,9 +41,10 @@ include('config/dbcon.php');
                                 </a>
                
                                  </div>   
-                                 <div class="action" style="margin-left:220px;">
-                                <button onclick="on(),deleteConfirm()"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                <button onclick="on(),leaveConfirm()" ><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+                                 <div class="action d-flex justify-content-end p-2 mt-5" >
+                                  
+                                <i class="fa-solid fa-trash " style="color:#24385c;margin-right:15px;cursor:pointer;" aria-hidden="true" onclick="on(),deleteConfirm()"></i>
+                                <i class="fa fa-sign-out "  style="color:#24385c;cursor:pointer;" aria-hidden="true" onclick="on(),leaveConfirm()"></i>
 
                                  </div>
                                         
