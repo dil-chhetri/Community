@@ -1,7 +1,7 @@
 <?php include_once "includes/headers.php";
-
-
-include('config/dbcon.php');
+ include_once "includes/actions.php";
+include_once "includes/overlay.php";
+include_once('config/dbcon.php');
 // include('includes/cartmodule.php');
 ?>
   <?php if(isset($_SESSION['message'])): ?>
@@ -22,7 +22,7 @@ include('config/dbcon.php');
                   
                
         
-                        <div class="row justify-content-center p-2" style=" display: grid;;grid-template-columns:30% 30% 30%; width: auto;row-gap:40px;">
+                        <div class="row justify-content-center p-2 main-contain">
                                  <?php
                                 $query = "SELECT * FROM community_chatgroup";
                                 $query_run = mysqli_query($con,$query);

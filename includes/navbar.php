@@ -8,10 +8,10 @@
       <ul class="navbar-nav ms-auto">
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Create</a>
+          <a class="nav-link" id="create" style="cursor:pointer;" onclick="createForm(),on()">Create</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Join</a>
+          <a class="nav-link" id="join" style="cursor:pointer;" onclick="joinForm(),on()">Join</a>
         </li>
       
           
