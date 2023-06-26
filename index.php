@@ -1,17 +1,24 @@
-<?php include_once "includes/headers.php";
- include_once "includes/actions.php";
+<?php
+
+session_start();
+include_once 'config/dbcon.php';
+
+if (!isset($_SESSION['id']) ||(trim ($_SESSION['id']) == '')) {
+header('location:../login.php');
+exit();
+}
+include_once "includes/headers.php";
+include_once "includes/navbar.php";
+include_once "includes/actions.php";
 include_once "includes/overlay.php";
-include_once('config/dbcon.php');
+// include_once('config/dbcon.php');
 // include('includes/cartmodule.php');
+if(isset($_SESSION['id'])){
+    echo $_SESSION['id'];
+   $user_id = $_SESSION['id'];
+}
 ?>
-  <?php if(isset($_SESSION['message'])): ?>
-                    <div class="alert alert-warning alert-dismissible fade show position-absolute" role="alert" style="width: 100%;">
-                    <strong>Hey!</strong> <?= $_SESSION['message']; ?>.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php 
-                unset($_SESSION['message']);
-                endif; ?>
+
 
        
     <div class="py-5">
@@ -24,7 +31,7 @@ include_once('config/dbcon.php');
         
                         <div class="row justify-content-center p-2 main-contain">
                                  <?php
-                                $query = "SELECT * FROM community_chatgroup";
+                                $query = "SELECT * FROM community_chatgroup WHERE userid = $user_id";
                                 $query_run = mysqli_query($con,$query);
                                 if(mysqli_num_rows($query_run) > 0){
                                 foreach($query_run as $item){ ?>

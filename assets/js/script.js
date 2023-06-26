@@ -26,3 +26,11 @@ function off() {
     document.getElementById("overlay").style.display = "none";
 }
 
+function showPassword() {
+    var pass = document.getElementById("myPassword");
+    if (pass.type === "password") {
+      pass.type = "text";
+    } else {
+      pass.type = "password";
+    }
+  }
