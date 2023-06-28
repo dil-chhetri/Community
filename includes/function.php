@@ -11,3 +11,16 @@ function randomString($n)
 
     return $str;
 }
+
+
+function formatTime($dateTime) {
+    try {
+        $inputFormat = "Y-m-d H:i:s";
+        $date = DateTime::createFromFormat($inputFormat, $dateTime);
+        $outputFormat = "g:i a F, Y";
+        return $date->format($outputFormat);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+    return $dateTime;
+}
