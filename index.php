@@ -15,7 +15,7 @@ include_once "includes/overlay.php";
 // include_once('config/dbcon.php');
 // include('includes/cartmodule.php');
 if(isset($_SESSION['id'])){
-    echo $_SESSION['id'];
+
    $user_id = $_SESSION['id'];
 }
 ?>
